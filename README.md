@@ -182,3 +182,5 @@ git push -u origin feature/book-management
 ```
 
 Push the final code to GitHub. Do not put database passwords in the repository.
+
+The project was uploaded to GitHub using the `main` branch. A separate branch named `documentation-update` was created to make documentation changes. These changes were committed and merged into the `main` branch through a Pull Request. 
