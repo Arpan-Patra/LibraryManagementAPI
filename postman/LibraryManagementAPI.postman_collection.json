@@ -1,0 +1,663 @@
+{
+  "info": {
+    "_postman_id": "ce96c886-7f11-4194-90d7-334c523759d2",
+    "name": "LibraryManagementAPI",
+    "description": "Postman collection for the Library Management REST API assignment. Create a book and student before trying Issue Book. Set the returned IDs in collection variables.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59122462",
+    "_collection_link": "https://go.postman.co/collection/59122462-ce96c886-7f11-4194-90d7-334c523759d2?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Add Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Java Programming\",\n  \"author\": \"Herbert Schildt\",\n  \"isbn\": \"9780071809252\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 5,\n  \"availableCopies\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Book By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/{{bookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books",
+            "{{bookId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Book",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Java Programming - Updated\",\n  \"author\": \"Herbert Schildt\",\n  \"isbn\": \"9780071809252\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 5,\n  \"availableCopies\": 5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books/{{bookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books",
+            "{{bookId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Books By Category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/category/Programming",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books",
+            "category",
+            "Programming"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Book",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/{{bookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books",
+            "{{bookId}}"
+          ]
+        },
+        "description": "Test this using a book that has no issue records. A book referenced by issue history is protected from deletion."
+      },
+      "response": []
+    },
+    {
+      "name": "Register Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentName\": \"Rahul Das\",\n  \"email\": \"rahul@example.com\",\n  \"department\": \"ECE\",\n  \"phoneNumber\": \"9876543210\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Students",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Student By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/{{studentId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "{{studentId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentName\": \"Rahul Das\",\n  \"email\": \"rahul@example.com\",\n  \"department\": \"ECE\",\n  \"phoneNumber\": \"9876543211\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students/{{studentId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "{{studentId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/{{studentId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "{{studentId}}"
+          ]
+        },
+        "description": "Test this using a student that has no issue records. A student referenced by issue history is protected from deletion."
+      },
+      "response": []
+    },
+    {
+      "name": "Issue Book",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/{{studentId}}/{{bookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "{{studentId}}",
+            "{{bookId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Issues",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Issues By Student",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/student/{{studentId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "student",
+            "{{studentId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Return Book",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/return/{{issueId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "return",
+            "{{issueId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Overdue Issues",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/overdue",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "overdue"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Book - Duplicate ISBN (Expected 409)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Duplicate Java Book\",\n  \"author\": \"Test Author\",\n  \"isbn\": \"9780071809252\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 2,\n  \"availableCopies\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books"
+          ]
+        },
+        "description": "Run after Add Book. The ISBN should already exist, so the API should return 409 Conflict."
+      },
+      "response": []
+    },
+    {
+      "name": "Add Book - Invalid Required Field (Expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"\",\n  \"author\": \"Test Author\",\n  \"isbn\": \"INVALID-ISBN-2\",\n  \"category\": \"Programming\",\n  \"totalCopies\": 2,\n  \"availableCopies\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books"
+          ]
+        },
+        "description": "The blank title should fail required-field validation and return 400 Bad Request."
+      },
+      "response": []
+    },
+    {
+      "name": "Register Student - Duplicate Email (Expected 409)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentName\": \"Duplicate Student\",\n  \"email\": \"rahul@example.com\",\n  \"department\": \"ECE\",\n  \"phoneNumber\": \"9876500000\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        },
+        "description": "Run after Register Student. The email should already exist, so the API should return 409 Conflict."
+      },
+      "response": []
+    },
+    {
+      "name": "Register Student - Invalid Email (Expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentName\": \"Invalid Email Student\",\n  \"email\": \"not-an-email\",\n  \"department\": \"ECE\",\n  \"phoneNumber\": \"9876500001\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/students",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students"
+          ]
+        },
+        "description": "The email format is invalid, so the API should return 400 Bad Request."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Missing Book (Expected 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/books/999999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books",
+            "999999"
+          ]
+        },
+        "description": "Use an ID that does not exist. Expected status: 404 Not Found."
+      },
+      "response": []
+    },
+    {
+      "name": "Get Missing Student (Expected 404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/students/999999",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "999999"
+          ]
+        },
+        "description": "Use an ID that does not exist. Expected status: 404 Not Found."
+      },
+      "response": []
+    },
+    {
+      "name": "Add Out-of-stock Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Out Of Stock Test Book\",\n  \"author\": \"Test Author\",\n  \"isbn\": \"OUT-OF-STOCK-001\",\n  \"category\": \"Testing\",\n  \"totalCopies\": 1,\n  \"availableCopies\": 0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "books"
+          ]
+        },
+        "description": "Create this book, then copy its returned bookId into the outOfStockBookId collection variable."
+      },
+      "response": []
+    },
+    {
+      "name": "Issue Out-of-stock Book (Expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/{{studentId}}/{{outOfStockBookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "{{studentId}}",
+            "{{outOfStockBookId}}"
+          ]
+        },
+        "description": "After creating the out-of-stock book and setting outOfStockBookId, this request should return 400 Bad Request."
+      },
+      "response": []
+    },
+    {
+      "name": "Issue Fourth Active Book (Expected 400)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/{{studentId}}/{{bookId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "{{studentId}}",
+            "{{bookId}}"
+          ]
+        },
+        "description": "First create three active issue records for the same student (repeat Issue Book three times). This fourth issue request should return 400 Bad Request."
+      },
+      "response": []
+    },
+    {
+      "name": "Return Same Issue Again (Expected 400)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/issues/return/{{issueId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "issues",
+            "return",
+            "{{issueId}}"
+          ]
+        },
+        "description": "Run Return Book once successfully first. Repeating this request should return 400 Bad Request."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8085"
+    },
+    {
+      "key": "bookId",
+      "value": "1"
+    },
+    {
+      "key": "studentId",
+      "value": "1"
+    },
+    {
+      "key": "issueId",
+      "value": "1"
+    },
+    {
+      "key": "outOfStockBookId",
+      "value": "1"
+    }
+  ]
+}
